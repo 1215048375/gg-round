@@ -1,13 +1,15 @@
 import React, { PropTypes } from 'react'
 
-const myBtn = ({text='clickMe', onClick}) => {
+const MyBtn = ({text='clickMe', onClick}) => {
     let input
     return (
         <div>
             <form onSubmit={
                 (e) => {
                     e.preventDefault()
-                    onClick(input.value)
+                    if (input.value.trim().length > 0) {
+                        onClick(input.value)
+                    }
                     input.value = ''
                 }
             }>
@@ -20,10 +22,9 @@ const myBtn = ({text='clickMe', onClick}) => {
     )
 }
 
-
-myBtn.PropTypes = {
+MyBtn.PropTypes = {
     text: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired,
 }
 
-export default myBtn
+export default MyBtn

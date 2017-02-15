@@ -1,5 +1,5 @@
 import React from 'react'
-import Btn from '../containers/App'
+import Btn from '../containers/Btn'
 import TodoList from '../containers/TodoList'
 
 const Home = () => (

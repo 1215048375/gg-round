@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import TodoBlock from './Todo'
 
-const TodoListComponent = ({todos}) => {
+const TodoListComponent = ({todos, onTodoClick}) => {
     return (
         <ul>
             {
@@ -9,6 +9,7 @@ const TodoListComponent = ({todos}) => {
                     <TodoBlock
                         key={todo.id}
                         {...todo}
+                        onClick={() => onTodoClick(todo.id)}
                     />
                 )
             }
@@ -16,12 +17,12 @@ const TodoListComponent = ({todos}) => {
     )
 }
 
-
 TodoListComponent.PropTypes = {
     todos: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         text: PropTypes.string.isRequired
-    }).isRequired).isRequired
+    }).isRequired).isRequired,
+    onTodoClick: PropTypes.func.isRequired
 }
 
 export default TodoListComponent
