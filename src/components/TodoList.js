@@ -20,7 +20,8 @@ const TodoListComponent = ({todos, onTodoClick}) => {
 TodoListComponent.PropTypes = {
     todos: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
-        text: PropTypes.string.isRequired
+        text: PropTypes.string.isRequired,
+        isFinished: PropTypes.bool.isRequired
     }).isRequired).isRequired,
     onTodoClick: PropTypes.func.isRequired
 }

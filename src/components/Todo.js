@@ -14,4 +14,3 @@ TodoComponent.PropTypes = {
 }
 
 export default TodoComponent
-

@@ -1,11 +1,13 @@
-import { TYPE_ADD_TODO, TYPE_TOGGLE_TODO } from '../actions/'
+import { TYPE_ADD_TODO, TYPE_TOGGLE_TODO, TYPE_FILTER_LIST, LIST_TYPE_ALL } from '../actions/'
+import { combineReducers } from 'redux'
 
 const todo = (state = {}, action) => {
     switch(action.type) {
         case TYPE_ADD_TODO:
             return {
                 id: action.id,
-                text: action.text
+                text: action.text,
+                isFinished: false
             }
 
         case TYPE_TOGGLE_TODO:
@@ -29,7 +31,6 @@ const todos = (state = [], action) => {
                 ...state,
                 todo(undefined, action)
             ]
-
         case TYPE_TOGGLE_TODO:
             return state.map( t => {
                 return todo(t, action)
@@ -40,10 +41,28 @@ const todos = (state = [], action) => {
     }
 }
 
-const reducer = (state = {}, action) => {
-    return Object.assign({}, state, {
-        todos: todos(state.todos, action)
-    })
+const filterType = (state = LIST_TYPE_ALL, action) => {
+    console.log('<<filterType>>')
+    console.log(state)
+    switch(action.type) {
+        case TYPE_FILTER_LIST:
+            if (action.listType.length > 0) {
+                return action.listType
+            }
+            return state
+        default:
+            return state
+    }
 }
 
-export default reducer
+export default combineReducers({
+    todos,
+    filterType
+})
+
+
+
+
+
+
+
