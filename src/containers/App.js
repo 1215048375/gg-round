@@ -1,12 +1,7 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
 
 import Btn from '../components/Btn'
-
-const mapStateToProps = (state, ownProps) => {
-    return ownProps
-}
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
@@ -14,8 +9,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     }
 }
 
-const BtnInst = connect(mapStateToProps, mapDispatchToProps)(Btn)
+const BtnInst = connect(undefined, mapDispatchToProps)(Btn)
 
 export default BtnInst
-
-

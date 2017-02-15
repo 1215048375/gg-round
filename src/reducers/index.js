@@ -1,4 +1,4 @@
-import { TYPE_ADD_TODO, addTodo } from '../actions/'
+import { TYPE_ADD_TODO } from '../actions/'
 
 const todo = (state = {}, action) => {
     switch(action.type) {
@@ -15,6 +15,7 @@ const todo = (state = {}, action) => {
 const todos = (state = [], action) => {
     console.log("=============")
     console.log(state)
+
     switch(action.type) {
         case TYPE_ADD_TODO:
             return [

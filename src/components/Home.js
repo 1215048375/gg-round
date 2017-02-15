@@ -1,11 +1,11 @@
 import React from 'react'
-import App from '../containers/App'
-import Btn from '../components/Btn'
+import Btn from '../containers/App'
+import TodoList from '../containers/TodoList'
 
-const Home =  () => (
+const Home = () => (
     <div>
-        <button>nihao</button>
-        <App />
+        <Btn />
+        <TodoList />
     </div>
 )
 
